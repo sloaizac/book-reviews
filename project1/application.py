@@ -32,8 +32,8 @@ def check_password(pwhash, password):
 def before_request():
     if 'username' not in session and request.endpoint in ['addReview', 'home']:
         return redirect(url_for('login'))
-    elif 'username' in session and request.endpoint in ['register', 'login', 'index']:
-        return redirect(url_for('home'))
+    elif 'username' in session and request.endpoint in ['register', 'login']:
+        return redirect(url_for('index'))
 
 @app.route("/")
 def index():
@@ -82,7 +82,7 @@ def login():
         return render_template('login.html', errors=err)
     session['username'] = res['username']
     session['id'] = res['id']
-    return render_template('home.html')
+    return render_template('index.html')
     
 @app.route("/logout", methods=['GET'])
 def logout():
@@ -90,10 +90,6 @@ def logout():
         session.pop('username')
         session.pop('id')
     return redirect(url_for('login'))
-
-@app.route("/home", methods=['GET'])
-def home():
-    return render_template('home.html')
 
 @app.route("/search", methods=['POST'])
 def search():

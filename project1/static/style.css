@@ -1,0 +1,13 @@
+#index {
+    background-image: url('background.jpg');
+    width: 100vw;
+    height: 1000vh;
+}
+
+.comment-text {
+    border: none;
+    outline: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+}

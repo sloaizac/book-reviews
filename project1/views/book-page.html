@@ -8,7 +8,7 @@
 <p>{{e}}</p>
 {% endfor %}
 {% endif %}
-<div class="container p-2 mt-2">
+<div class="container p-2 mt-2 mx-auto">
     <h3>{{book['title']}}</h3>
     <h5>{{book['author']}}</h5>
     <h5>{{book['year']}}</h5>
@@ -17,7 +17,7 @@
     <p>number rating <a href="https://www.goodreads.com/">Good reads</a>: {{number_rating}}</p>
 </div>
 
-<form class="container" action="{{url_for('addReview', id=book['id'])}}" method="post">
+<form class="container mx-auto" action="{{url_for('addReview', id=book['id'])}}" method="post">
     <div class="card p-0 col-md-6 col-lg-8 col-sm-8">
         <div class="card-header">
             <input type="radio" name="star" value="1">
@@ -33,7 +33,7 @@
     </div>
 </form>
 {% for r in reviews%}
-<div class="container">
+<div class="container mx-auto">
     <div class="card p-0 col-md-6 col-lg-8 col-sm-8 mt-2">
         <div class="card-header d-flex justify-content-between">
             <h6>rating: {{r['rating']}}</h6>
